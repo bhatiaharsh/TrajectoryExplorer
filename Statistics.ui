@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>StatisticsUI</class>
+ <widget class="QMainWindow" name="StatisticsUI">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>981</width>
+    <height>865</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Lithium Viewer</string>
+  </property>
+  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>981</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget">
+   <property name="minimumSize">
+    <size>
+     <width>150</width>
+     <height>700</height>
+    </size>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <widget class="QGroupBox" name="gb_axes">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>10</y>
+       <width>141</width>
+       <height>201</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Manual axes scaling</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <widget class="QLabel" name="lab_numBins">
+      <property name="geometry">
+       <rect>
+        <x>2</x>
+        <y>31</y>
+        <width>61</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string># bins</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="sb_numBins">
+      <property name="geometry">
+       <rect>
+        <x>57</x>
+        <y>25</y>
+        <width>81</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::PlusMinus</enum>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>1</number>
+      </property>
+      <property name="value">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lab_numTscales">
+      <property name="geometry">
+       <rect>
+        <x>2</x>
+        <y>55</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string># tscales</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="sb_numTscales">
+      <property name="geometry">
+       <rect>
+        <x>57</x>
+        <y>50</y>
+        <width>81</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::PlusMinus</enum>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>1</number>
+      </property>
+      <property name="value">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="dsb_minTscale">
+      <property name="geometry">
+       <rect>
+        <x>36</x>
+        <y>141</y>
+        <width>101</width>
+        <height>24</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lab_axisTscale">
+      <property name="geometry">
+       <rect>
+        <x>2</x>
+        <y>123</y>
+        <width>101</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>tscale axis</string>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="dsb_maxTscale">
+      <property name="geometry">
+       <rect>
+        <x>36</x>
+        <y>166</y>
+        <width>101</width>
+        <height>24</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lab_minTscale">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>145</y>
+        <width>31</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>min</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lab_maxTscale">
+      <property name="geometry">
+       <rect>
+        <x>9</x>
+        <y>170</y>
+        <width>31</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>max</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="cb_noAggr">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>90</y>
+        <width>121</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>No aggregation</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QComboBox" name="cb_colormap">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>250</y>
+       <width>141</width>
+       <height>26</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="gb_color">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>280</y>
+       <width>141</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Manual color scaling</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <widget class="QDoubleSpinBox" name="dsb_mincolor">
+      <property name="geometry">
+       <rect>
+        <x>36</x>
+        <y>25</y>
+        <width>101</width>
+        <height>24</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="dsb_maxcolor">
+      <property name="geometry">
+       <rect>
+        <x>36</x>
+        <y>50</y>
+        <width>101</width>
+        <height>24</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lab_mincolor">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>29</y>
+        <width>31</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>min</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lab_maxcolor">
+      <property name="geometry">
+       <rect>
+        <x>9</x>
+        <y>54</y>
+        <width>31</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>max</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>6</x>
+       <y>236</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Color Map</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="cb_datauq">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>370</y>
+       <width>131</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Data Uncertainty</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pb_save">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>430</y>
+       <width>113</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save Plots</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <action name="actionPlotLiVal">
+   <property name="text">
+    <string>Li Value</string>
+   </property>
+  </action>
+  <action name="actionPlotLiPos">
+   <property name="text">
+    <string>Li Position</string>
+   </property>
+  </action>
+  <action name="actionPlotLiSdVal">
+   <property name="text">
+    <string>Li's Sd Values</string>
+   </property>
+  </action>
+  <action name="actionPlotLiSdPos">
+   <property name="text">
+    <string>Li's Sd Positions</string>
+   </property>
+  </action>
+  <action name="actionPlotPers_UvalVsLval">
+   <property name="text">
+    <string>Uval vs Lval</string>
+   </property>
+  </action>
+  <action name="actionPlotPers_persVsLval">
+   <property name="text">
+    <string>Pers vs Lval</string>
+   </property>
+  </action>
+  <action name="actionPlotPers_PersVsCPInd">
+   <property name="text">
+    <string>CP Indx vs Pers</string>
+   </property>
+  </action>
+  <action name="actionPlotLiOxVal">
+   <property name="text">
+    <string>Li's Ox Values</string>
+   </property>
+  </action>
+  <action name="actionPlotLiOxPos">
+   <property name="text">
+    <string>Li's Ox Positions</string>
+   </property>
+  </action>
+  <action name="actionPlotOxSdDists">
+   <property name="text">
+    <string>Ox and Sd Distances</string>
+   </property>
+  </action>
+  <action name="actionLi_Value">
+   <property name="text">
+    <string>Li Value</string>
+   </property>
+  </action>
+  <action name="actionF_Value">
+   <property name="text">
+    <string>F Value</string>
+   </property>
+  </action>
+  <action name="actionO_Value">
+   <property name="text">
+    <string>O Value</string>
+   </property>
+  </action>
+  <action name="actionC_Value">
+   <property name="text">
+    <string>C Value</string>
+   </property>
+  </action>
+  <action name="actionP_Value">
+   <property name="text">
+    <string>P Value</string>
+   </property>
+  </action>
+  <action name="actionH_Value">
+   <property name="text">
+    <string>H Value</string>
+   </property>
+  </action>
+  <action name="actionLi_Position">
+   <property name="text">
+    <string>Li Position</string>
+   </property>
+  </action>
+  <action name="actionP_Position">
+   <property name="text">
+    <string>P Position</string>
+   </property>
+  </action>
+  <action name="actionF_Position">
+   <property name="text">
+    <string>F Position</string>
+   </property>
+  </action>
+  <action name="actionO_Position">
+   <property name="text">
+    <string>O Position</string>
+   </property>
+  </action>
+  <action name="actionC_Position">
+   <property name="text">
+    <string>C Position</string>
+   </property>
+  </action>
+  <action name="actionH_Position">
+   <property name="text">
+    <string>H Position</string>
+   </property>
+  </action>
+  <action name="actionP_Distance">
+   <property name="text">
+    <string>P Distance</string>
+   </property>
+  </action>
+  <action name="actionF_Distance">
+   <property name="text">
+    <string>F Distance</string>
+   </property>
+  </action>
+  <action name="actionO_Distance">
+   <property name="text">
+    <string>O Distance</string>
+   </property>
+  </action>
+  <action name="actionC_Distance">
+   <property name="text">
+    <string>C Distance</string>
+   </property>
+  </action>
+  <action name="actionH_Distance">
+   <property name="text">
+    <string>H Distance</string>
+   </property>
+  </action>
+  <action name="actionLi">
+   <property name="text">
+    <string>Li Value</string>
+   </property>
+  </action>
+  <action name="actionLi_Value_2">
+   <property name="text">
+    <string>Li Value</string>
+   </property>
+  </action>
+  <action name="actionP_Value_2">
+   <property name="text">
+    <string>P Value</string>
+   </property>
+  </action>
+  <action name="actionF_Value_2">
+   <property name="text">
+    <string>F Value</string>
+   </property>
+  </action>
+  <action name="actionO_Value_2">
+   <property name="text">
+    <string>O Value</string>
+   </property>
+  </action>
+  <action name="actionC_Value_2">
+   <property name="text">
+    <string>C Value</string>
+   </property>
+  </action>
+  <action name="actionH_Value_2">
+   <property name="text">
+    <string>H Value</string>
+   </property>
+  </action>
+  <action name="actionLi_P_Distance">
+   <property name="text">
+    <string>Li-P Distance</string>
+   </property>
+  </action>
+  <action name="actionLi_F_Distance">
+   <property name="text">
+    <string>Li-F Distance</string>
+   </property>
+  </action>
+  <action name="actionLi_O_Distance">
+   <property name="text">
+    <string>Li-O Distance</string>
+   </property>
+  </action>
+  <action name="actionLi_C_Distance">
+   <property name="text">
+    <string>Li-C Distance</string>
+   </property>
+  </action>
+  <action name="actionLi_H_Distance">
+   <property name="text">
+    <string>Li-H Distance</string>
+   </property>
+  </action>
+  <action name="actionLi_Position_2">
+   <property name="text">
+    <string>Li Position</string>
+   </property>
+  </action>
+  <action name="actionP_Position_2">
+   <property name="text">
+    <string>P Position</string>
+   </property>
+  </action>
+  <action name="actionF_Position_2">
+   <property name="text">
+    <string>F Position</string>
+   </property>
+  </action>
+  <action name="actionO_Position_2">
+   <property name="text">
+    <string>O Position</string>
+   </property>
+  </action>
+  <action name="actionC_Position_2">
+   <property name="text">
+    <string>C Position</string>
+   </property>
+  </action>
+  <action name="actionH_Position_2">
+   <property name="text">
+    <string>H Position</string>
+   </property>
+  </action>
+  <action name="actionPlotLiSdDists">
+   <property name="text">
+    <string>Li's Sd Distances</string>
+   </property>
+  </action>
+  <action name="actionLi_O_Distance_file">
+   <property name="text">
+    <string>Li-O Distance (LiO-Distance file)</string>
+   </property>
+  </action>
+  <action name="actionForce_file">
+   <property name="text">
+    <string>Force Vector file</string>
+   </property>
+  </action>
+  <action name="actionPlotLiVolumes">
+   <property name="text">
+    <string>3-man's Volumes</string>
+   </property>
+  </action>
+  <action name="actionPlotPers_PersVsCPCount">
+   <property name="text">
+    <string>Atoms vs Pers</string>
+   </property>
+  </action>
+  <action name="actionPlotLiBarycentric">
+   <property name="text">
+    <string>Li's Barycentric</string>
+   </property>
+  </action>
+  <action name="actionPlotTetVolume">
+   <property name="text">
+    <string>Tet's Volume</string>
+   </property>
+  </action>
+  <action name="actionNodesColor_Criticality">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Color by Criticality</string>
+   </property>
+  </action>
+  <action name="actionNodesColor_MatIndex">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Color by Material Index</string>
+   </property>
+  </action>
+  <action name="actionBonds">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Show bonds</string>
+   </property>
+  </action>
+  <action name="actionArcs">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show arcs</string>
+   </property>
+  </action>
+  <action name="actionMaterial_Paths">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Material Paths</string>
+   </property>
+  </action>
+  <action name="actionMatForce_Vectors">
+   <property name="text">
+    <string>Force Vectors</string>
+   </property>
+  </action>
+  <action name="actionMatTrajectories">
+   <property name="text">
+    <string>Trajectories</string>
+   </property>
+  </action>
+  <action name="actionNodesColor_MatType">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Color by Material Type</string>
+   </property>
+  </action>
+  <action name="actionPlotPers_LiBonds_vs_Pers">
+   <property name="text">
+    <string>Li Bonds vs Pers</string>
+   </property>
+  </action>
+  <action name="action_XDATCAR_all_file">
+   <property name="text">
+    <string>Li-O Distance (XDATCAR_all file)</string>
+   </property>
+  </action>
+  <action name="action_XDATCAR_x_file">
+   <property name="text">
+    <string>Li-O Distance (XDATCAR.x file)</string>
+   </property>
+  </action>
+  <action name="actionNewSim_XDATCAR">
+   <property name="text">
+    <string>New Sim. XDATCAR</string>
+   </property>
+  </action>
+  <action name="actionNewSim_Histogram">
+   <property name="text">
+    <string>New Sim. Red's Vel. Histogram</string>
+   </property>
+  </action>
+  <action name="cb_gle_tubes">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>GLE Trajectories</string>
+   </property>
+  </action>
+  <action name="cb_gle_bonds">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>GLE Bonds</string>
+   </property>
+  </action>
+  <action name="cb_axes">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Axes</string>
+   </property>
+  </action>
+  <action name="cb_bbox">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show BBox</string>
+   </property>
+  </action>
+  <action name="tfunc_singleHue">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>singleHue</string>
+   </property>
+  </action>
+  <action name="tfunc_gpJet">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Jet</string>
+   </property>
+  </action>
+  <action name="tfunc_gpGrayscale">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpGrayscale</string>
+   </property>
+  </action>
+  <action name="tfunc_gpHot">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpHot</string>
+   </property>
+  </action>
+  <action name="tfunc_gpCold">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpCold</string>
+   </property>
+  </action>
+  <action name="tfunc_gpNight">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpNight</string>
+   </property>
+  </action>
+  <action name="tfunc_gpCandy">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpCandy</string>
+   </property>
+  </action>
+  <action name="tfunc_gpGeography">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpGeography</string>
+   </property>
+  </action>
+  <action name="tfunc_gpIon">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpIon</string>
+   </property>
+  </action>
+  <action name="tfunc_gpThermal">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpThermal</string>
+   </property>
+  </action>
+  <action name="tfunc_gpPolar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpPolar</string>
+   </property>
+  </action>
+  <action name="tfunc_gpSpectrum">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpSpectrum</string>
+   </property>
+  </action>
+  <action name="tfunc_gpJets">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpJet</string>
+   </property>
+  </action>
+  <action name="tfunc_gpHues">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpHues</string>
+   </property>
+  </action>
+  <action name="actionShow_Color_Scale">
+   <property name="text">
+    <string>Show Color Scale</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

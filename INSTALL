@@ -1,0 +1,46 @@
+DEPENDENCIES
+
+The TrajectoryExplorer has the following dependencies:
+
+1. Qt (tested with Qt 5.5.1 and Qmake 3.0)
+
+2. The OpenGL Extension Wrangler Library (tested with GLEW 1.13)
+
+3. QGLViewer -- A Qt-based 3D viewer: http://libqglviewer.com/ (tested with
+QGLViewer 2.6.3)
+
+4. GLE Tubing and Extrusion Library : http://www.linas.org/gle/ (tested with
+GLE 3.1.0)
+
+The code assumes that Qt and GLEW are already available, whereas the build
+script downloads and installs QGLViewer and GLE automatically in a local path
+(see step 2 in INSTALLATION). 
+
+To correct/modify paths for any of these libraries, please see
+TrajectoryExplorer/TrajectoryExplorer.pro.
+
+
+INSTALLATION
+
+1. Download the code from git repository.
+
+2. Change the current directory to TrajectoryExplorer/extlibs. Execute the build
+script buildlibs.sh. This downloads and installs QGLViewer-2.6.3 and gle-3.1.0
+libraries.
+
+3. Change the current directory to TrajectoryExplorer, and create a new build
+directory (TrajectoryExplorer/build) for out-of-source installation. The
+following commands builds the source code, and creates the executable
+'TrajectoryExplorer'. 
+
+qmake ../ 
+
+make
+
+EXECUTION
+
+The program requires a config file to specify input parameters, and can be
+executed as 
+
+TrajectoryExplorer <config-filename>
+

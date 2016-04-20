@@ -1,0 +1,1201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TrajectoryViewerUI</class>
+ <widget class="QMainWindow" name="TrajectoryViewerUI">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>981</width>
+    <height>865</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Lithium Viewer</string>
+  </property>
+  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>981</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuVisualization">
+    <property name="title">
+     <string>3D Visualization</string>
+    </property>
+    <addaction name="cb_bbox"/>
+    <addaction name="separator"/>
+    <addaction name="cb_gle_tubes"/>
+    <addaction name="cb_gle_bonds"/>
+   </widget>
+   <addaction name="menuVisualization"/>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget">
+   <property name="minimumSize">
+    <size>
+     <width>150</width>
+     <height>700</height>
+    </size>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <widget class="QGroupBox" name="groupBox_anim">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>445</y>
+       <width>141</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Animation</string>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+     <widget class="QLabel" name="label_2">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>8</x>
+        <y>26</y>
+        <width>61</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Anim Spd</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="sb_animSpeed">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>23</y>
+        <width>71</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>20000</number>
+      </property>
+      <property name="singleStep">
+       <number>10</number>
+      </property>
+      <property name="value">
+       <number>10</number>
+      </property>
+      <property name="displayIntegerBase">
+       <number>10</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>7</x>
+        <y>50</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Tail Lngth</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="sb_tailLength">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>46</y>
+        <width>71</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>-1</number>
+      </property>
+      <property name="maximum">
+       <number>20000</number>
+      </property>
+      <property name="singleStep">
+       <number>100</number>
+      </property>
+      <property name="value">
+       <number>1000</number>
+      </property>
+      <property name="displayIntegerBase">
+       <number>10</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_animPause">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>32</x>
+        <y>67</y>
+        <width>81</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Pause</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_animResume">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>32</x>
+        <y>90</y>
+        <width>81</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Resume</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_animSetTime">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>-3</x>
+        <y>119</y>
+        <width>81</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Set time</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="sb_time">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>73</x>
+        <y>122</y>
+        <width>71</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>0</number>
+      </property>
+      <property name="maximum">
+       <number>0</number>
+      </property>
+      <property name="singleStep">
+       <number>1</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+      <property name="displayIntegerBase">
+       <number>10</number>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QListWidget" name="lw_atoms_li">
+     <property name="geometry">
+      <rect>
+       <x>6</x>
+       <y>17</y>
+       <width>140</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::MultiSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="currentRow">
+      <number>-1</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>1</y>
+       <width>141</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Select Li Atoms</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>6</x>
+       <y>785</y>
+       <width>51</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Atom Sz</string>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="dsb_atomRadius">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>780</y>
+       <width>81</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::PlusMinus</enum>
+     </property>
+     <property name="decimals">
+      <number>3</number>
+     </property>
+     <property name="minimum">
+      <double>0.001000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>0.100000000000000</double>
+     </property>
+     <property name="singleStep">
+      <double>0.001000000000000</double>
+     </property>
+     <property name="value">
+      <double>0.008000000000000</double>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="gb_bonds">
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>350</y>
+       <width>141</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Show Bonds</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <widget class="QDoubleSpinBox" name="dsb_bondDist">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>3</x>
+        <y>41</y>
+        <width>60</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::PlusMinus</enum>
+      </property>
+      <property name="decimals">
+       <number>2</number>
+      </property>
+      <property name="minimum">
+       <double>0.100000000000000</double>
+      </property>
+      <property name="maximum">
+       <double>19.230000000000000</double>
+      </property>
+      <property name="singleStep">
+       <double>0.100000000000000</double>
+      </property>
+      <property name="value">
+       <double>2.700000000000000</double>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>22</y>
+        <width>121</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Dist. Threshold</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>63</x>
+        <y>44</y>
+        <width>40</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Angs.</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_computeBonds">
+      <property name="geometry">
+       <rect>
+        <x>92</x>
+        <y>40</y>
+        <width>51</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Go</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_static">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>599</y>
+       <width>141</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Static Trajectories</string>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>30</y>
+        <width>41</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Offset</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="sb_offset">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>27</y>
+        <width>101</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>0</number>
+      </property>
+      <property name="maximum">
+       <number>74999</number>
+      </property>
+      <property name="singleStep">
+       <number>10</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+      <property name="displayIntegerBase">
+       <number>10</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>-1</x>
+        <y>54</y>
+        <width>41</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Delta</string>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="sb_delta">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>50</y>
+        <width>101</width>
+        <height>24</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QListWidget" name="lw_atoms_ox">
+     <property name="geometry">
+      <rect>
+       <x>6</x>
+       <y>110</y>
+       <width>140</width>
+       <height>171</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::MultiSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="currentRow">
+      <number>-1</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>141</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Select Ox Atoms</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pb_allOx">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>280</y>
+       <width>101</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Unselect all</string>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="dsb_tubeThickness">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>750</y>
+       <width>71</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::PlusMinus</enum>
+     </property>
+     <property name="decimals">
+      <number>4</number>
+     </property>
+     <property name="minimum">
+      <double>0.000100000000000</double>
+     </property>
+     <property name="maximum">
+      <double>0.010000000000000</double>
+     </property>
+     <property name="singleStep">
+      <double>0.001000000000000</double>
+     </property>
+     <property name="value">
+      <double>0.001000000000000</double>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>11</x>
+       <y>755</y>
+       <width>51</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Width</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pb_center">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>-5</x>
+       <y>309</y>
+       <width>81</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Center at</string>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cb_center">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>310</y>
+       <width>81</width>
+       <height>26</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cb_hist">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>690</y>
+       <width>81</width>
+       <height>26</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pb_hists">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>-5</x>
+       <y>689</y>
+       <width>81</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ang Corr</string>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="cb_tets">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>424</y>
+       <width>87</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Show Tets</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="cb_sync">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>730</y>
+       <width>121</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Sync. windows</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <action name="actionPlotLiVal">
+   <property name="text">
+    <string>Li Value</string>
+   </property>
+  </action>
+  <action name="actionPlotLiPos">
+   <property name="text">
+    <string>Li Position</string>
+   </property>
+  </action>
+  <action name="actionPlotLiSdVal">
+   <property name="text">
+    <string>Li's Sd Values</string>
+   </property>
+  </action>
+  <action name="actionPlotLiSdPos">
+   <property name="text">
+    <string>Li's Sd Positions</string>
+   </property>
+  </action>
+  <action name="actionPlotPers_UvalVsLval">
+   <property name="text">
+    <string>Uval vs Lval</string>
+   </property>
+  </action>
+  <action name="actionPlotPers_persVsLval">
+   <property name="text">
+    <string>Pers vs Lval</string>
+   </property>
+  </action>
+  <action name="actionPlotPers_PersVsCPInd">
+   <property name="text">
+    <string>CP Indx vs Pers</string>
+   </property>
+  </action>
+  <action name="actionPlotLiOxVal">
+   <property name="text">
+    <string>Li's Ox Values</string>
+   </property>
+  </action>
+  <action name="actionPlotLiOxPos">
+   <property name="text">
+    <string>Li's Ox Positions</string>
+   </property>
+  </action>
+  <action name="actionPlotOxSdDists">
+   <property name="text">
+    <string>Ox and Sd Distances</string>
+   </property>
+  </action>
+  <action name="actionLi_Value">
+   <property name="text">
+    <string>Li Value</string>
+   </property>
+  </action>
+  <action name="actionF_Value">
+   <property name="text">
+    <string>F Value</string>
+   </property>
+  </action>
+  <action name="actionO_Value">
+   <property name="text">
+    <string>O Value</string>
+   </property>
+  </action>
+  <action name="actionC_Value">
+   <property name="text">
+    <string>C Value</string>
+   </property>
+  </action>
+  <action name="actionP_Value">
+   <property name="text">
+    <string>P Value</string>
+   </property>
+  </action>
+  <action name="actionH_Value">
+   <property name="text">
+    <string>H Value</string>
+   </property>
+  </action>
+  <action name="actionLi_Position">
+   <property name="text">
+    <string>Li Position</string>
+   </property>
+  </action>
+  <action name="actionP_Position">
+   <property name="text">
+    <string>P Position</string>
+   </property>
+  </action>
+  <action name="actionF_Position">
+   <property name="text">
+    <string>F Position</string>
+   </property>
+  </action>
+  <action name="actionO_Position">
+   <property name="text">
+    <string>O Position</string>
+   </property>
+  </action>
+  <action name="actionC_Position">
+   <property name="text">
+    <string>C Position</string>
+   </property>
+  </action>
+  <action name="actionH_Position">
+   <property name="text">
+    <string>H Position</string>
+   </property>
+  </action>
+  <action name="actionP_Distance">
+   <property name="text">
+    <string>P Distance</string>
+   </property>
+  </action>
+  <action name="actionF_Distance">
+   <property name="text">
+    <string>F Distance</string>
+   </property>
+  </action>
+  <action name="actionO_Distance">
+   <property name="text">
+    <string>O Distance</string>
+   </property>
+  </action>
+  <action name="actionC_Distance">
+   <property name="text">
+    <string>C Distance</string>
+   </property>
+  </action>
+  <action name="actionH_Distance">
+   <property name="text">
+    <string>H Distance</string>
+   </property>
+  </action>
+  <action name="actionLi">
+   <property name="text">
+    <string>Li Value</string>
+   </property>
+  </action>
+  <action name="actionLi_Value_2">
+   <property name="text">
+    <string>Li Value</string>
+   </property>
+  </action>
+  <action name="actionP_Value_2">
+   <property name="text">
+    <string>P Value</string>
+   </property>
+  </action>
+  <action name="actionF_Value_2">
+   <property name="text">
+    <string>F Value</string>
+   </property>
+  </action>
+  <action name="actionO_Value_2">
+   <property name="text">
+    <string>O Value</string>
+   </property>
+  </action>
+  <action name="actionC_Value_2">
+   <property name="text">
+    <string>C Value</string>
+   </property>
+  </action>
+  <action name="actionH_Value_2">
+   <property name="text">
+    <string>H Value</string>
+   </property>
+  </action>
+  <action name="actionLi_P_Distance">
+   <property name="text">
+    <string>Li-P Distance</string>
+   </property>
+  </action>
+  <action name="actionLi_F_Distance">
+   <property name="text">
+    <string>Li-F Distance</string>
+   </property>
+  </action>
+  <action name="actionLi_O_Distance">
+   <property name="text">
+    <string>Li-O Distance</string>
+   </property>
+  </action>
+  <action name="actionLi_C_Distance">
+   <property name="text">
+    <string>Li-C Distance</string>
+   </property>
+  </action>
+  <action name="actionLi_H_Distance">
+   <property name="text">
+    <string>Li-H Distance</string>
+   </property>
+  </action>
+  <action name="actionLi_Position_2">
+   <property name="text">
+    <string>Li Position</string>
+   </property>
+  </action>
+  <action name="actionP_Position_2">
+   <property name="text">
+    <string>P Position</string>
+   </property>
+  </action>
+  <action name="actionF_Position_2">
+   <property name="text">
+    <string>F Position</string>
+   </property>
+  </action>
+  <action name="actionO_Position_2">
+   <property name="text">
+    <string>O Position</string>
+   </property>
+  </action>
+  <action name="actionC_Position_2">
+   <property name="text">
+    <string>C Position</string>
+   </property>
+  </action>
+  <action name="actionH_Position_2">
+   <property name="text">
+    <string>H Position</string>
+   </property>
+  </action>
+  <action name="actionPlotLiSdDists">
+   <property name="text">
+    <string>Li's Sd Distances</string>
+   </property>
+  </action>
+  <action name="actionLi_O_Distance_file">
+   <property name="text">
+    <string>Li-O Distance (LiO-Distance file)</string>
+   </property>
+  </action>
+  <action name="actionForce_file">
+   <property name="text">
+    <string>Force Vector file</string>
+   </property>
+  </action>
+  <action name="actionPlotLiVolumes">
+   <property name="text">
+    <string>3-man's Volumes</string>
+   </property>
+  </action>
+  <action name="actionPlotPers_PersVsCPCount">
+   <property name="text">
+    <string>Atoms vs Pers</string>
+   </property>
+  </action>
+  <action name="actionPlotLiBarycentric">
+   <property name="text">
+    <string>Li's Barycentric</string>
+   </property>
+  </action>
+  <action name="actionPlotTetVolume">
+   <property name="text">
+    <string>Tet's Volume</string>
+   </property>
+  </action>
+  <action name="actionNodesColor_Criticality">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Color by Criticality</string>
+   </property>
+  </action>
+  <action name="actionNodesColor_MatIndex">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Color by Material Index</string>
+   </property>
+  </action>
+  <action name="actionBonds">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Show bonds</string>
+   </property>
+  </action>
+  <action name="actionArcs">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show arcs</string>
+   </property>
+  </action>
+  <action name="actionMaterial_Paths">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Material Paths</string>
+   </property>
+  </action>
+  <action name="actionMatForce_Vectors">
+   <property name="text">
+    <string>Force Vectors</string>
+   </property>
+  </action>
+  <action name="actionMatTrajectories">
+   <property name="text">
+    <string>Trajectories</string>
+   </property>
+  </action>
+  <action name="actionNodesColor_MatType">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Color by Material Type</string>
+   </property>
+  </action>
+  <action name="actionPlotPers_LiBonds_vs_Pers">
+   <property name="text">
+    <string>Li Bonds vs Pers</string>
+   </property>
+  </action>
+  <action name="action_XDATCAR_all_file">
+   <property name="text">
+    <string>Li-O Distance (XDATCAR_all file)</string>
+   </property>
+  </action>
+  <action name="action_XDATCAR_x_file">
+   <property name="text">
+    <string>Li-O Distance (XDATCAR.x file)</string>
+   </property>
+  </action>
+  <action name="actionNewSim_XDATCAR">
+   <property name="text">
+    <string>New Sim. XDATCAR</string>
+   </property>
+  </action>
+  <action name="actionNewSim_Histogram">
+   <property name="text">
+    <string>New Sim. Red's Vel. Histogram</string>
+   </property>
+  </action>
+  <action name="cb_gle_tubes">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>GLE Trajectories</string>
+   </property>
+  </action>
+  <action name="cb_gle_bonds">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>GLE Bonds</string>
+   </property>
+  </action>
+  <action name="cb_axes">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Axes</string>
+   </property>
+  </action>
+  <action name="cb_bbox">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show BBox</string>
+   </property>
+  </action>
+  <action name="tfunc_singleHue">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>singleHue</string>
+   </property>
+  </action>
+  <action name="tfunc_gpJet">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Jet</string>
+   </property>
+  </action>
+  <action name="tfunc_gpGrayscale">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpGrayscale</string>
+   </property>
+  </action>
+  <action name="tfunc_gpHot">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpHot</string>
+   </property>
+  </action>
+  <action name="tfunc_gpCold">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpCold</string>
+   </property>
+  </action>
+  <action name="tfunc_gpNight">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpNight</string>
+   </property>
+  </action>
+  <action name="tfunc_gpCandy">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpCandy</string>
+   </property>
+  </action>
+  <action name="tfunc_gpGeography">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpGeography</string>
+   </property>
+  </action>
+  <action name="tfunc_gpIon">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpIon</string>
+   </property>
+  </action>
+  <action name="tfunc_gpThermal">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpThermal</string>
+   </property>
+  </action>
+  <action name="tfunc_gpPolar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpPolar</string>
+   </property>
+  </action>
+  <action name="tfunc_gpSpectrum">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpSpectrum</string>
+   </property>
+  </action>
+  <action name="tfunc_gpJets">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpJet</string>
+   </property>
+  </action>
+  <action name="tfunc_gpHues">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>gpHues</string>
+   </property>
+  </action>
+  <action name="actionShow_Color_Scale">
+   <property name="text">
+    <string>Show Color Scale</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
